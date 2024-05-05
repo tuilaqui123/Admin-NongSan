@@ -2,14 +2,14 @@ import React from "react";
 import ImageUpload from "../../components/Button/ImageUpload";
 import CommonButton from "../../components/Button/CommonButton";
 
-const AddFarm = () => {
+const FarmDetail = () => {
     return (
         <div className="w-full flex flex-row gap-5 items-start ">
             <div className="w-1/4">
                 <ImageUpload />
             </div>
             <div className="w-3/4 flex flex-col gap-5">
-                <p className="text-3xl font-bold mb-5">Thông tin trang trại</p>
+                <p className="text-3xl font-black mb-5 text-[#7dc642]  ">Công ty Thiên nhiên Việt</p>
                 <div className="w-full grid grid-cols-2 gap-5">
                     <div className="w-full flex flex-col gap-2">
                         <p className="font-bold">Tên trang trại</p>
@@ -60,4 +60,4 @@ const AddFarm = () => {
     );
 }
 
-export default AddFarm;
+export default FarmDetail;

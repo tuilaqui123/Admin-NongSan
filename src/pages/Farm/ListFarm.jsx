@@ -30,15 +30,30 @@ const ListFarm = () => {
                 <CommonSearch />
             </div>
             <div className="grid grid-cols-4 gap-5">
-                <Box />
-                <Box />
-                <Box />
-                <Box />
-                <Box />
-                <Box />
-                <Box />
-                <Box />
-                <Box />
+                <Box
+                    path={"chinh-sua/id09123213"}
+                    name={"Công ty Thiên nhiên Việt"}
+                />
+                <Box
+                    path={"chinh-sua/id09123213"}
+                    name={"Công ty Thiên nhiên Việt"}
+                />
+                <Box
+                    path={"chinh-sua/id09123213"}
+                    name={"Công ty Thiên nhiên Việt"}
+                />
+                <Box
+                    path={"chinh-sua/id09123213"}
+                    name={"Công ty Thiên nhiên Việt"}
+                />
+                <Box
+                    path={"chinh-sua/id09123213"}
+                    name={"Công ty Thiên nhiên Việt"}
+                />
+                <Box
+                    path={"chinh-sua/id09123213"}
+                    name={"Công ty Thiên nhiên Việt"}
+                />
             </div>
         </>
     );

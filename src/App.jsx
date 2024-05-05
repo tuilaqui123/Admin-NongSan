@@ -13,6 +13,7 @@ import ListVoucher from "./pages/Voucher/ListVoucher"
 import { AppProvider } from "./context/AppContext"
 import AddVoucher from "./pages/Voucher/AddVoucher"
 import VoucherDetail from "./pages/Voucher/VoucherDetail"
+import FarmDetail from "./pages/Farm/FarmDetail"
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="/trang-trai" element={<Farm />}>
               <Route index element={<ListFarm />} />
               <Route path="them-trang-trai" element={<AddFarm />} />
+              <Route path="chinh-sua/:farmID" element={<FarmDetail />} />
             </Route>
             <Route path="/ma-giam-gia" element={<Voucher />} >
               <Route index element={<ListVoucher />} />
