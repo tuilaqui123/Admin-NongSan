@@ -1,12 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logo from '../../assets/logo.png'
 import logoLeaf from '../../assets/logo-leaf.png'
 import NavButton from "../Button/NavButton";
 import clsx from "clsx";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../../context/AppContext";
 
 const Navbar = ({ navSlide }) => {
-    const [select, setSelect] = useState()
+    const navigate = useNavigate()
+    const { setBreadcrumb } = useContext(AppContext)
+    const [select, setSelect] = useState(1)
+    useEffect(() => {
+        navigate("/thong-ke")
+    }, [])
+
+    const handleBreadcrumbChange = (newBreadcrumb) => {
+        setBreadcrumb(newBreadcrumb);
+    }
+
     return (
         <div
             // className="fixed w-1/4 h-screen p-3 border"
@@ -64,6 +75,7 @@ const Navbar = ({ navSlide }) => {
                         position={1}
                         select={select}
                         navSlide={navSlide}
+                        onBreadcrumbChange={handleBreadcrumbChange}
                     />
                     <NavButton
                         icon={"fa-solid fa-box"}
@@ -74,6 +86,7 @@ const Navbar = ({ navSlide }) => {
                         position={2}
                         select={select}
                         navSlide={navSlide}
+                        onBreadcrumbChange={handleBreadcrumbChange}
                     />
                     <NavButton
                         icon={"fa-solid fa-users"}
@@ -84,6 +97,7 @@ const Navbar = ({ navSlide }) => {
                         position={3}
                         select={select}
                         navSlide={navSlide}
+                        onBreadcrumbChange={handleBreadcrumbChange}
                     />
                     <NavButton
                         icon={"fa-solid fa-warehouse"}
@@ -94,6 +108,7 @@ const Navbar = ({ navSlide }) => {
                         position={4}
                         select={select}
                         navSlide={navSlide}
+                        onBreadcrumbChange={handleBreadcrumbChange}
                     />
                     <NavButton
                         icon={"fa-brands fa-envira"}
@@ -103,6 +118,7 @@ const Navbar = ({ navSlide }) => {
                         position={5}
                         select={select}
                         navSlide={navSlide}
+                        onBreadcrumbChange={handleBreadcrumbChange}
                     />
                     <NavButton
                         icon={"fa-solid fa-tag"}
@@ -112,6 +128,7 @@ const Navbar = ({ navSlide }) => {
                         position={6}
                         select={select}
                         navSlide={navSlide}
+                        onBreadcrumbChange={handleBreadcrumbChange}
                     />
                     <NavButton
                         icon={"fa-solid fa-hashtag"}
@@ -121,6 +138,7 @@ const Navbar = ({ navSlide }) => {
                         position={7}
                         select={select}
                         navSlide={navSlide}
+                        onBreadcrumbChange={handleBreadcrumbChange}
                     />
                 </div>
             </div>

@@ -2,10 +2,19 @@ import clsx from "clsx";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavButton = ({ icon, name, badge, onclick, path, position, select, navSlide }) => {
+const NavButton = ({ icon, name, badge, onclick, path, position, select, navSlide, onBreadcrumbChange }) => {
+    const handleClick = () => {
+        const temp = {
+            mainSelect: name,
+            icon: icon,
+            childSelect: ""
+        };
+        onBreadcrumbChange(temp);
+        onclick();
+    }
     return (
         <Link
-            onClick={onclick}
+            onClick={handleClick}
             to={path}
             className={clsx({
                 "w-full h-auto p-1 pr-2 flex flex-row items-center justify-between rounded-lg cursor-pointer bg-[#7dc642]": position == select,

@@ -9,14 +9,14 @@ const PageLayout = ({ children, onclick, navSlide }) => {
                 // className="w-1/4 border"
                 className={clsx({
                     "w-1/4": navSlide,
-                    "w-1/12": !navSlide
+                    "w-[7%]": !navSlide
                 })}
             ></div>
             <div
                 // className="w-3/4 flex flex-col gap-3"
                 className={clsx({
                     "w-3/4 flex flex-col gap-3": navSlide,
-                    "w-11/12 flex flex-col gap-3": !navSlide
+                    "w-[93%] flex flex-col gap-3": !navSlide
                 })}
             >
                 <StatusBar

@@ -8,32 +8,44 @@ import TestBase2 from "./pages/Dashboard/ok2"
 import Farm from "./pages/Farm/Farm"
 import AddFarm from "./pages/Farm/AddFarm"
 import ListFarm from "./pages/Farm/ListFarm"
+import Voucher from "./pages/Voucher/Voucher"
+import ListVoucher from "./pages/Voucher/ListVoucher"
+import { AppProvider } from "./context/AppContext"
+import AddVoucher from "./pages/Voucher/AddVoucher"
+import VoucherDetail from "./pages/Voucher/VoucherDetail"
 
 function App() {
 
   const [navSlide, setNavSlide] = useState(true)
 
   return (
-    <BrowserRouter>
-      <Navbar
-        navSlide={navSlide}
-      />
-      <PageLayout
-        navSlide={navSlide}
-        onclick={() => setNavSlide(!navSlide)}
-      >
-        <Routes>
-          <Route path="/thong-ke" element={<Dashboard />}>
-            <Route path="ok1" element={<TestBase />} />
-            <Route path="ok2" element={<TestBase2 />} />
-          </Route>
-          <Route path="/trang-trai" element={<Farm />}>
-            <Route index element={<ListFarm />} />
-            <Route path="them-trang-trai" element={<AddFarm />} />
-          </Route>
-        </Routes>
-      </PageLayout>
-    </BrowserRouter>
+    <AppProvider>
+      <BrowserRouter>
+        <Navbar
+          navSlide={navSlide}
+        />
+        <PageLayout
+          navSlide={navSlide}
+          onclick={() => setNavSlide(!navSlide)}
+        >
+          <Routes>
+            <Route path="/thong-ke" element={<Dashboard />}>
+              <Route path="ok1" element={<TestBase />} />
+              <Route path="ok2" element={<TestBase2 />} />
+            </Route>
+            <Route path="/trang-trai" element={<Farm />}>
+              <Route index element={<ListFarm />} />
+              <Route path="them-trang-trai" element={<AddFarm />} />
+            </Route>
+            <Route path="/ma-giam-gia" element={<Voucher />} >
+              <Route index element={<ListVoucher />} />
+              <Route path="them-ma-giam-gia" element={<AddVoucher />} />
+              <Route path="chinh-sua/:voucherID" element={<VoucherDetail />} />
+            </Route>
+          </Routes>
+        </PageLayout>
+      </BrowserRouter>
+    </AppProvider>
   )
 }
 
