@@ -18,6 +18,9 @@ import Storage from "./pages/Storage/Storage"
 import StorageList from "./pages/Storage/StorageList"
 import AddItem from "./pages/Storage/AddItem"
 import ItemDetail from "./pages/Storage/ItemDetail"
+import Customer from "./pages/Customer/Customer"
+import CustomerList from "./pages/Customer/CustomerList"
+import CustomerDetail from "./pages/Customer/CustomerDetail"
 
 function App() {
 
@@ -38,7 +41,11 @@ function App() {
               <Route path="ok1" element={<TestBase />} />
               <Route path="ok2" element={<TestBase2 />} />
             </Route>
-            <Route path="kho" element={<Storage />}>
+            <Route path="/khach-hang" element={<Customer />} >
+              <Route index element={<CustomerList />} />
+              <Route path="chinh-sua/:customerID" element={<CustomerDetail />} />
+            </Route>
+            <Route path="/kho" element={<Storage />}>
               <Route index element={<StorageList />} />
               <Route path="them-san-pham" element={<AddItem />} />
               <Route path="chinh-sua/:itemID" element={<ItemDetail />} />

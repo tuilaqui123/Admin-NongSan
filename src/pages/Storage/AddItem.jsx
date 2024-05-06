@@ -42,9 +42,10 @@ const AddItem = () => {
                         placeholder={"Chi tiết đơn vị"}
                         type={"text"}
                     />
-                    <CommonSelect
-                        name={"Nhãn"}
-                        title={"Nhãn"}
+                    <CommonInput
+                        name={"Nhãn giảm giá"}
+                        placeholder={"Nhãn giảm giá %"}
+                        type={"number"}
                     />
                     <CommonInput
                         name={"Số lượng"}
