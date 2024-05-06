@@ -66,10 +66,22 @@ const StorageList = () => {
                     path={"chinh-sua/id0912312"}
                     onclick={() => handleChildSelectBreadcrumb("Rau xà lách")}
                 />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
+                <Item
+                    path={"chinh-sua/id0912312"}
+                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách")}
+                />
+                <Item
+                    path={"chinh-sua/id0912312"}
+                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách")}
+                />
+                <Item
+                    path={"chinh-sua/id0912312"}
+                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách")}
+                />
+                <Item
+                    path={"chinh-sua/id0912312"}
+                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách")}
+                />
             </div>
         </div>
     )
