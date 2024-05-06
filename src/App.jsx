@@ -21,6 +21,9 @@ import ItemDetail from "./pages/Storage/ItemDetail"
 import Customer from "./pages/Customer/Customer"
 import CustomerList from "./pages/Customer/CustomerList"
 import CustomerDetail from "./pages/Customer/CustomerDetail"
+import Order from "./pages/Order/Order"
+import OrderList from "./pages/Order/OrderList"
+import OrderDetail from "./pages/Order/OrderDetail"
 
 function App() {
 
@@ -40,6 +43,10 @@ function App() {
             <Route path="/thong-ke" element={<Dashboard />}>
               <Route path="ok1" element={<TestBase />} />
               <Route path="ok2" element={<TestBase2 />} />
+            </Route>
+            <Route path="/don-hang" element={<Order />}>
+              <Route index element={<OrderList />} />
+              <Route path="chi-tiet/:orderID" element={<OrderDetail />} />
             </Route>
             <Route path="/khach-hang" element={<Customer />} >
               <Route index element={<CustomerList />} />

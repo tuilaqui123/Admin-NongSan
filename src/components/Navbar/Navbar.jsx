@@ -130,16 +130,6 @@ const Navbar = ({ navSlide }) => {
                         navSlide={navSlide}
                         onBreadcrumbChange={handleBreadcrumbChange}
                     />
-                    <NavButton
-                        icon={"fa-solid fa-hashtag"}
-                        name={"Nhãn dán"}
-                        path={"/nhan-dan"}
-                        onclick={() => setSelect(7)}
-                        position={7}
-                        select={select}
-                        navSlide={navSlide}
-                        onBreadcrumbChange={handleBreadcrumbChange}
-                    />
                 </div>
             </div>
         </div>
