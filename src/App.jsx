@@ -14,6 +14,10 @@ import { AppProvider } from "./context/AppContext"
 import AddVoucher from "./pages/Voucher/AddVoucher"
 import VoucherDetail from "./pages/Voucher/VoucherDetail"
 import FarmDetail from "./pages/Farm/FarmDetail"
+import Storage from "./pages/Storage/Storage"
+import StorageList from "./pages/Storage/StorageList"
+import AddItem from "./pages/Storage/AddItem"
+import ItemDetail from "./pages/Storage/ItemDetail"
 
 function App() {
 
@@ -33,6 +37,11 @@ function App() {
             <Route path="/thong-ke" element={<Dashboard />}>
               <Route path="ok1" element={<TestBase />} />
               <Route path="ok2" element={<TestBase2 />} />
+            </Route>
+            <Route path="kho" element={<Storage />}>
+              <Route index element={<StorageList />} />
+              <Route path="them-san-pham" element={<AddItem />} />
+              <Route path="chinh-sua/:itemID" element={<ItemDetail />} />
             </Route>
             <Route path="/trang-trai" element={<Farm />}>
               <Route index element={<ListFarm />} />
