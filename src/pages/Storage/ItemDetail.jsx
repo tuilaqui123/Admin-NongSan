@@ -71,7 +71,9 @@ const ItemDetail = () => {
                 />
                 <div className="w-full flex justify-center items-center">
                     <div className="w-1/3">
-                        <CommonButton>
+                        <CommonButton
+                            hoverColor={"[#7dc642]"}
+                        >
                             + CẬP NHẬT
                         </CommonButton>
                     </div>

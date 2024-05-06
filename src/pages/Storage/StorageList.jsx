@@ -40,7 +40,9 @@ const StorageList = () => {
                 <div className="col-span-4 grid grid-cols-7 gap-3">
                     <div className="col-span-1">
                         <p className="font-bold w-auto">Tìm kiếm:</p>
-                        <CommonButton>
+                        <CommonButton
+                            hoverColor={"[#7dc642]"}
+                        >
                             Reset
                         </CommonButton>
                     </div>
@@ -56,6 +58,7 @@ const StorageList = () => {
                     <CommonButton
                         path={"them-san-pham"}
                         onclick={() => handleChildSelectBreadcrumb("Thêm sản phẩm")}
+                        hoverColor={"[#7dc642]"}
                     >
                         + Thêm sản phẩm
                     </CommonButton>
@@ -64,23 +67,23 @@ const StorageList = () => {
             <div className="w-full h-auto grid grid-cols-4 gap-5 mt-5">
                 <Item
                     path={"chinh-sua/id0912312"}
-                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách")}
+                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách#0234")}
                 />
                 <Item
                     path={"chinh-sua/id0912312"}
-                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách")}
+                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách#0234")}
                 />
                 <Item
                     path={"chinh-sua/id0912312"}
-                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách")}
+                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách#0234")}
                 />
                 <Item
                     path={"chinh-sua/id0912312"}
-                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách")}
+                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách#0234")}
                 />
                 <Item
                     path={"chinh-sua/id0912312"}
-                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách")}
+                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách#0234")}
                 />
             </div>
         </div>

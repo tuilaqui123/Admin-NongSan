@@ -46,7 +46,9 @@ const AddVoucher = () => {
                 </div>
                 <div className="w-full flex flex-row items-center justify-center mt-20">
                     <div className="w-1/3">
-                        <CommonButton>
+                        <CommonButton
+                            hoverColor={"[#7dc642]"}
+                        >
                             + THÊM
                         </CommonButton>
                     </div>

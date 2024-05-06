@@ -8,9 +8,19 @@ const OrderList = () => {
         <div>
             {/* so don moi (trong ngay) , so dong chua xac nhan, so dong da hoanh thanh (trong 1 thang) */}
             <div className="w-full grid grid-cols-3 gap-5">
-                <StatusBox />
-                <StatusBox />
-                <StatusBox />
+                <StatusBox
+                    title={"Số đơn chưa xác nhận"}
+                    value={100}
+                />
+                <StatusBox
+                    title={"Số đơn đang giao"}
+                    value={100}
+                />
+                <StatusBox
+                    title={"Số đơn đã hoàn thành"}
+                    value={100}
+
+                />
             </div>
             <div className="w-full flex justify-end mt-5">
                 <div className="w-1/2">

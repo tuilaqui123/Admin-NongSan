@@ -61,7 +61,7 @@ const CustomerTable = () => {
                         <td className="font-bold text-[#7dc642]">50.000đ</td>
                         <td className="px-5">
                             <Link
-                                to={`chinh-sua/customerID`}
+                                to={`chi-tiet/customerID`}
                                 onClick={() => handleChildSelectBreadcrumb("Phạm Ngọc Quí")}
                             >
                                 <i class="fa-solid fa-gear text-2xl hover:text-blue-700 cursor-pointer duration-200"></i>

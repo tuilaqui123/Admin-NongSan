@@ -50,7 +50,7 @@ function App() {
             </Route>
             <Route path="/khach-hang" element={<Customer />} >
               <Route index element={<CustomerList />} />
-              <Route path="chinh-sua/:customerID" element={<CustomerDetail />} />
+              <Route path="chi-tiet/:customerID" element={<CustomerDetail />} />
             </Route>
             <Route path="/kho" element={<Storage />}>
               <Route index element={<StorageList />} />

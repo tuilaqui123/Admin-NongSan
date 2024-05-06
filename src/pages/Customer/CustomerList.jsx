@@ -1,22 +1,26 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../context/AppContext";
+import React from "react";
 import CommonSearch from "../../components/Search/CommonSearch";
 import CustomerTable from "./CustomerTable";
+import StatusBox from "../../components/Display/StatusBox";
 
 
 const CustomerList = () => {
-    const { breadcrumb, setBreadcrumb } = useContext(AppContext)
-
-    function handleChildSelectBreadcrumb(child) {
-        const temp = {
-            mainSelect: breadcrumb.mainSelect,
-            icon: breadcrumb.icon,
-            childSelect: child
-        }
-        setBreadcrumb(temp)
-    }
     return (
         <div>
+            <div className="w-full grid grid-cols-3 gap-5 mb-5">
+                <StatusBox
+                    title={"Số tài khoản mới được tạo"}
+                    value={100}
+                    statistics={"Tăng 10%"}
+                    statisticsText={"so với tháng trước"}
+                />
+                <StatusBox
+                    title={"Tổng số khách hàng hiện tại"}
+                    value={8902}
+                    statistics={"Tăng 430"}
+                    statisticsText={"so với tháng trước"}
+                />
+            </div>
             <div className="w-full h-auto gap-5 grid grid-cols-2">
                 <div></div>
                 <CommonSearch />

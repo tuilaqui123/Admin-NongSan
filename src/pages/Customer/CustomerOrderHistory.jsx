@@ -40,24 +40,14 @@ const CustomerOrderHistory = () => {
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <div className="flex flex-row items-start justify-center gap-2 py-1">
-                                    <div className="flex flex-col items-end font-bold">
-                                        <p>Tên người đặt hàng:</p>
-                                        <p>Email:</p>
-                                        <p>Ngày đặt hàng:</p>
-                                        <p>Số điện thoại:</p>
-                                        <p>Địa chỉ:</p>
-                                        <div></div>
-                                    </div>
-                                    <div className="flex flex-col items-start">
-                                        <p>Phạm Ngọc Quí</p>
-                                        <p>quidhtv0149@gmail.com</p>
-                                        <p>05/05/2023</p>
-                                        <p>0912725561</p>
-                                        <p>121/2C, Khu phố 2, Phường 4</p>
-                                        <p>Huyện Châu Thành, Tỉnh Bến Tre</p>
-                                    </div>
+                            <td className="flex justify-center py-2">
+                                <div className="text-left">
+                                    <p className="font-bold">Họ tên: <span className="font-normal">Phạm Ngọc Quí</span></p>
+                                    <p className="font-bold">Email: <span className="font-normal">quidhtv0149@gmail.com</span></p>
+                                    <p className="font-bold">Ngày đặt hàng: <span className="font-normal">05/05/2023</span></p>
+                                    <p className="font-bold">Số điện thoại: <span className="font-normal">0912725561</span></p>
+                                    <p className="font-bold">Địa chỉ: <span className="font-normal">121/2C, Khu phố 2, Phường 4</span></p>
+                                    <p><span>Huyện Châu Thành, Tỉnh Bến Tre</span></p>
                                 </div>
                             </td>
                             <td className="font-bold text-[#7dc642]">1.200.000đ</td>

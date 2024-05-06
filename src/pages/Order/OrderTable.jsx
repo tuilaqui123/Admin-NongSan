@@ -69,16 +69,10 @@ const OrderTable = () => {
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <div className="flex flex-row items-start justify-center gap-2">
-                                    <div className="flex flex-col items-end font-bold">
-                                        <p>Họ tên:</p>
-                                        <p>Số điện thoại:</p>
-                                    </div>
-                                    <div className="flex flex-col items-start">
-                                        <p>Phạm Ngọc Quí</p>
-                                        <p>0912725561</p>
-                                    </div>
+                            <td className="flex justify-center items-center py-2">
+                                <div className="text-left">
+                                    <p className="font-bold">Họ tên: <span className="font-normal">Phạm Ngọc Quí</span></p>
+                                    <p className="font-bold">Số điện thoại: <span className="font-normal">0912725561</span></p>
                                 </div>
                             </td>
                             <td className="font-bold text-[#7dc642]">1.200.000đ</td>

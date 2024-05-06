@@ -7,7 +7,16 @@ const OrderDetail = () => {
     return (
         <div className="pb-10">
             <div className="w-full h-auto mb-5">
-                <p className="font-bold text-3xl mb-3">Thông tin đơn hàng </p>
+                <div className="w-full flex flex-row items-center justify-between mb-3">
+                    <p className="font-bold text-3xl">Thông tin đơn hàng </p>
+                    <div className="w-1/4">
+                        <CommonButton
+                            hoverColor={"[#ff0000]"}
+                        >
+                            Xoá đơn hàng
+                        </CommonButton>
+                    </div>
+                </div>
                 <OrderDetailTable />
             </div>
             <p className="font-bold text-3xl mb-3">Thông tin đặt hàng</p>
@@ -43,7 +52,9 @@ const OrderDetail = () => {
             </div>
             <div className="w-full flex flex-row items-center justify-center mt-5">
                 <div className="w-1/4">
-                    <CommonButton>
+                    <CommonButton
+                        hoverColor={"[#7dc642]"}
+                    >
                         Xác nhận đơn hàng
                     </CommonButton>
                 </div>

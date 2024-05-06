@@ -23,6 +23,7 @@ const ListFarm = () => {
                     <CommonButton
                         path={"them-trang-trai"}
                         onclick={() => handleChildSelectBreadcrumb("Thêm trang trại")}
+                        hoverColor={"[#7dc642]"}
                     >
                         + Thêm trang trại
                     </CommonButton>

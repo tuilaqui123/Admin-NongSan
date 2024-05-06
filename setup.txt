@@ -2,6 +2,4 @@ docker
 
 create comfirm delete noti component
 
-update customer (statusbox - số người mới tham gia, số khách hàng đã tạo, số người đặt đơn nhưng ko phải user)
-
-item#id - rau xa lach #0123
+page panigation
