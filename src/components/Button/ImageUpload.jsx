@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 
-const ImageUpload = () => {
-    const [uploadImage, setUploadImage] = useState()
+const ImageUpload = ({ setUploadImage }) => {
+
+    const [preImage, setPreImage] = useState()
+
     function handleImageChange(event) {
         const file = event.target.files[0];
         const previewURL = URL.createObjectURL(file);
-        setUploadImage(previewURL);
+        setUploadImage(file);
+        setPreImage(previewURL);
     }
     return (
         <div className="w-full">
@@ -16,10 +19,10 @@ const ImageUpload = () => {
                     <p className="text-white font-medium">Thêm hình ảnh</p>
                 </label>
             </div>
-            {uploadImage &&
+            {preImage &&
                 <div className="w-full relative">
-                    <img src={uploadImage} className="w-full rounded-xl shadow-2xl mt-5" />
-                    <i className="fa-solid fa-xmark absolute top-2 right-2 bg-white rounded-full px-[2px] cursor-pointer hover:bg-[#fc0307] hover:text-white" onClick={() => setUploadImage()}></i>
+                    <img src={preImage} className="w-full rounded-xl shadow-2xl mt-5" />
+                    <i className="fa-solid fa-xmark absolute top-2 right-2 bg-white rounded-full px-[2px] cursor-pointer hover:bg-[#fc0307] hover:text-white" onClick={() => { setPreImage(); setUploadImage() }}></i>
                 </div>
 
             }

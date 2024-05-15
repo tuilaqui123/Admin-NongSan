@@ -25,7 +25,7 @@ const Box = ({ path, image, name }) => {
             className="w-full h-auto border border-[#3e3e3e] p-2 rounded-lg cursor-pointer group duration-200 hover:bg-[#3e3e3e]">
             <div className="w-full border border-gray-400 rounded-lg bg-white">
                 <img
-                    src={farm}
+                    src={image}
                     className=" group-hover:scale-125 duration-200 group-hover:brightness-110"
                 />
             </div>

@@ -103,7 +103,6 @@ const Navbar = ({ navSlide }) => {
                         icon={"fa-solid fa-warehouse"}
                         name={"Kho nông sản"}
                         path={"/kho"}
-                        badge={12}
                         onclick={() => setSelect(4)}
                         position={4}
                         select={select}
@@ -126,6 +125,16 @@ const Navbar = ({ navSlide }) => {
                         path={"/ma-giam-gia"}
                         onclick={() => setSelect(6)}
                         position={6}
+                        select={select}
+                        navSlide={navSlide}
+                        onBreadcrumbChange={handleBreadcrumbChange}
+                    />
+                    <NavButton
+                        icon={"fa-solid fa-bars-progress"}
+                        name={"Quản lý web"}
+                        path={"/quan-ly-web"}
+                        onclick={() => setSelect(7)}
+                        position={7}
                         select={select}
                         navSlide={navSlide}
                         onBreadcrumbChange={handleBreadcrumbChange}

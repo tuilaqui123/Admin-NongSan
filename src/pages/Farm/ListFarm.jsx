@@ -5,7 +5,7 @@ import CommonButton from "../../components/Button/CommonButton";
 import { AppContext } from "../../context/AppContext";
 
 const ListFarm = () => {
-    const { breadcrumb, setBreadcrumb } = useContext(AppContext)
+    const { breadcrumb, setBreadcrumb, farms } = useContext(AppContext)
 
     function handleChildSelectBreadcrumb(child) {
         const temp = {
@@ -31,30 +31,17 @@ const ListFarm = () => {
                 <CommonSearch />
             </div>
             <div className="grid grid-cols-4 gap-5">
-                <Box
-                    path={"chinh-sua/id09123213"}
-                    name={"Công ty Thiên nhiên Việt"}
-                />
-                <Box
-                    path={"chinh-sua/id09123213"}
-                    name={"Công ty Thiên nhiên Việt"}
-                />
-                <Box
-                    path={"chinh-sua/id09123213"}
-                    name={"Công ty Thiên nhiên Việt"}
-                />
-                <Box
-                    path={"chinh-sua/id09123213"}
-                    name={"Công ty Thiên nhiên Việt"}
-                />
-                <Box
-                    path={"chinh-sua/id09123213"}
-                    name={"Công ty Thiên nhiên Việt"}
-                />
-                <Box
-                    path={"chinh-sua/id09123213"}
-                    name={"Công ty Thiên nhiên Việt"}
-                />
+                {farms.map((value, index) => {
+                    return (
+                        <Box
+                            key={index}
+                            path={`chinh-sua/${value._id}`}
+                            image={value.image}
+                            name={value.name}
+                        />
+
+                    )
+                })}
             </div>
         </>
     );

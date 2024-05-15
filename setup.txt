@@ -3,3 +3,12 @@ docker
 create comfirm delete noti component
 
 page panigation
+
+!important
+-> web control -> banner, các mặt hàng giảm giá
+
+thêm nút xoá 
+    + nông trại
+    + sản phẩm
+
+
