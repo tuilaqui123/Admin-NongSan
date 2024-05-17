@@ -7,7 +7,7 @@ import SearchTag from "../../components/Search/SearchTag";
 import Item from "../../components/Item/Item";
 
 const StorageList = () => {
-    const { breadcrumb, setBreadcrumb } = useContext(AppContext)
+    const { breadcrumb, setBreadcrumb, items } = useContext(AppContext)
 
     function handleChildSelectBreadcrumb(child) {
         const temp = {
@@ -65,26 +65,18 @@ const StorageList = () => {
                 </div>
             </div>
             <div className="w-full h-auto grid grid-cols-4 gap-5 mt-5">
-                <Item
-                    path={"chinh-sua/id0912312"}
-                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách#0234")}
-                />
-                <Item
-                    path={"chinh-sua/id0912312"}
-                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách#0234")}
-                />
-                <Item
-                    path={"chinh-sua/id0912312"}
-                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách#0234")}
-                />
-                <Item
-                    path={"chinh-sua/id0912312"}
-                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách#0234")}
-                />
-                <Item
-                    path={"chinh-sua/id0912312"}
-                    onclick={() => handleChildSelectBreadcrumb("Rau xà lách#0234")}
-                />
+                {items.map((value, index) => {
+                    return (
+                        <Item
+                            key={index}
+                            path={"chinh-sua/id0912312"}
+                            onclick={() => handleChildSelectBreadcrumb("Rau xà lách#0234")}
+                            image={value.image}
+                            name={value.name}
+                            price={value.price}
+                        />
+                    )
+                })}
             </div>
         </div>
     )

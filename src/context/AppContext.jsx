@@ -11,6 +11,7 @@ export const AppProvider = ({ children }) => {
     })
 
     const [farms, setFarms] = useState([])
+    const [items, setItems] = useState([])
 
     //farm
     const fetchFarm = () => {
@@ -23,13 +24,28 @@ export const AppProvider = ({ children }) => {
             })
     }
 
+    //item
+    const fetchItem = () => {
+        axios.get("http://localhost:8082/items")
+            .then((res) => {
+                setItems(res.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
     useEffect(() => {
         fetchFarm()
+        fetchItem()
     }, [])
+
+    console.log(items)
 
     return <AppContext.Provider value={{
         breadcrumb, setBreadcrumb,
-        farms, setFarms, fetchFarm
+        farms, setFarms, fetchFarm,
+        items, setItems, fetchItem
     }}>
         {children}
     </AppContext.Provider>
