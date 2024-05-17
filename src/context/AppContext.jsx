@@ -12,6 +12,7 @@ export const AppProvider = ({ children }) => {
 
     const [farms, setFarms] = useState([])
     const [items, setItems] = useState([])
+    const [vouchers, setVouchers] = useState([])
 
     //farm
     const fetchFarm = () => {
@@ -35,17 +36,27 @@ export const AppProvider = ({ children }) => {
             })
     }
 
+    const fetchVoucher = () => {
+        axios.get("http://localhost:8082/vouchers")
+            .then((res) => {
+                setVouchers(res.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
     useEffect(() => {
         fetchFarm()
         fetchItem()
+        fetchVoucher()
     }, [])
-
-    console.log(items)
 
     return <AppContext.Provider value={{
         breadcrumb, setBreadcrumb,
         farms, setFarms, fetchFarm,
-        items, setItems, fetchItem
+        items, setItems, fetchItem,
+        vouchers, setVouchers, fetchVoucher
     }}>
         {children}
     </AppContext.Provider>

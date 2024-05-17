@@ -1,9 +1,63 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CommonButton from "../../components/Button/CommonButton";
 import CommonInput from "../../components/Search/CommonInput";
-import CommonSelect from "../../components/Search/CommonSelect";
+
+import axios from "axios";
+import { AppContext } from "../../context/AppContext";
+import { useNavigate, useParams } from "react-router-dom";
 
 const VoucherDetail = () => {
+
+    const { fetchVoucher } = useContext(AppContext)
+    const navigate = useNavigate()
+    const params = useParams()
+
+    const [name, setName] = useState("")
+    const [conditionText, setConditionText] = useState("")
+    const [conditionValue, setConditionValue] = useState(0)
+    const [percent, setPercent] = useState(0)
+    const [quantity, setQuantity] = useState(0)
+    const [date, setDate] = useState("")
+
+    useEffect(() => {
+        axios.get(`http://localhost:8082/vouchers/${params.voucherID}`)
+            .then((res) => {
+                console.log(res.data)
+                setName(res.data.name)
+                setConditionText(res.data.conditionText)
+                setConditionValue(res.data.conditionValue)
+                setPercent(res.data.percent)
+                setQuantity(res.data.quantity)
+                setDate(res.data.date.substring(0, 10))
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [params.voucherID])
+
+    async function handleUpdateVoucher() {
+        axios
+            .put(`http://localhost:8082/vouchers/${params.voucherID}`, {
+                name: name,
+                conditionText: conditionText,
+                conditionValue: conditionValue,
+                percent: percent,
+                quantity: quantity,
+                date: date
+
+            })
+            .then((res) => {
+                console.log(res.data);
+                alert("Cập nhật mã giảm giá thành công thành công")
+                navigate('/ma-giam-gia')
+            })
+            .catch((err) => console.log(err))
+            .finally(async () => {
+                await fetchVoucher()
+            })
+
+    }
+
     return (
         <div className="w-full flex justify-center">
             <div className="w-11/12 flex flex-col gap-5 pt-5">
@@ -13,35 +67,44 @@ const VoucherDetail = () => {
                         name={"Mã giảm giá"}
                         placeholder={"#"}
                         type={"text"}
+                        text={name}
+                        setText={setName}
                     />
                     <CommonInput
                         name={"Điều kiện"}
                         placeholder={"Điều kiện"}
                         type={"text"}
-                    />
-                    <CommonSelect
-                        name={"Loại"}
-                        title={"Loại"}
+                        text={conditionText}
+                        setText={setConditionText}
                     />
                     <CommonInput
                         name={"Phần trăm giảm"}
                         placeholder={"Phần trăm giảm %"}
                         type={"number"}
+                        text={percent}
+                        setText={setPercent}
                     />
                     <CommonInput
-                        name={"Số tiền giảm"}
-                        placeholder={"Số tiền giảm"}
+                        name={"Số tiền đơn hàng phải đạt"}
+                        placeholder={"Số tiền tối thiểu"}
                         type={"number"}
+                        text={conditionValue}
+                        setText={setConditionValue}
                     />
                     <CommonInput
                         name={"Số lượng mã"}
                         placeholder={"Số lượng mã"}
                         type={"number"}
+                        text={quantity}
+                        setText={setQuantity}
                     />
                     <CommonInput
                         name={"Ngày hết hạn"}
                         type={"date"}
+                        text={date}
+                        setText={setDate}
                     />
+
 
                 </div>
                 <div className="w-full flex flex-row items-center justify-center mt-20">
