@@ -40,10 +40,10 @@ function App() {
           onclick={() => setNavSlide(!navSlide)}
         >
           <Routes>
-            <Route path="/thong-ke" element={<Dashboard />}>
+            {/* <Route path="/thong-ke" element={<Dashboard />}>
               <Route path="ok1" element={<TestBase />} />
               <Route path="ok2" element={<TestBase2 />} />
-            </Route>
+            </Route> */}
             <Route path="/don-hang" element={<Order />}>
               <Route index element={<OrderList />} />
               <Route path="chi-tiet/:orderID" element={<OrderDetail />} />

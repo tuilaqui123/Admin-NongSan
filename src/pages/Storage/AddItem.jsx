@@ -54,6 +54,7 @@ const AddItem = () => {
         const formData = new FormData()
         formData.append("name", name)
         formData.append("type", type)
+        formData.append("farm", farm)
         formData.append("price", price)
         formData.append("unit", unit)
         formData.append("unitText", unitText)
@@ -82,6 +83,7 @@ const AddItem = () => {
             })
 
     }
+
 
     return (
         <div className="w-full flex flex-row gap-5 items-start ">

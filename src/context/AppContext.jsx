@@ -5,7 +5,7 @@ export const AppContext = createContext({})
 export const AppProvider = ({ children }) => {
 
     const [breadcrumb, setBreadcrumb] = useState({
-        mainSelect: "Thống kê",
+        mainSelect: "Đơn hàng",
         icon: "fa-solid fa-chart-simple",
         childSelect: ""
     })
@@ -13,6 +13,7 @@ export const AppProvider = ({ children }) => {
     const [farms, setFarms] = useState([])
     const [items, setItems] = useState([])
     const [vouchers, setVouchers] = useState([])
+    const [orders, setOrders] = useState([])
 
     //farm
     const fetchFarm = () => {
@@ -46,17 +47,30 @@ export const AppProvider = ({ children }) => {
             })
     }
 
+    const fetchOrder = () => {
+        axios.get("http://localhost:8082/orders")
+            .then((res) => {
+                setOrders(res.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
     useEffect(() => {
         fetchFarm()
         fetchItem()
         fetchVoucher()
+        fetchOrder()
     }, [])
+
 
     return <AppContext.Provider value={{
         breadcrumb, setBreadcrumb,
         farms, setFarms, fetchFarm,
         items, setItems, fetchItem,
-        vouchers, setVouchers, fetchVoucher
+        vouchers, setVouchers, fetchVoucher,
+        orders, setOrders, fetchOrder
     }}>
         {children}
     </AppContext.Provider>

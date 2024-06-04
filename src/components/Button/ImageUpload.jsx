@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ImageUpload = ({ setUploadImage }) => {
+const ImageUpload = ({ setUploadImage, haveImage }) => {
 
     const [preImage, setPreImage] = useState()
 
@@ -19,12 +19,18 @@ const ImageUpload = ({ setUploadImage }) => {
                     <p className="text-white font-medium">Thêm hình ảnh</p>
                 </label>
             </div>
-            {preImage &&
+            {preImage ? (
+
                 <div className="w-full relative">
                     <img src={preImage} className="w-full rounded-xl shadow-2xl mt-5" />
                     <i className="fa-solid fa-xmark absolute top-2 right-2 bg-white rounded-full px-[2px] cursor-pointer hover:bg-[#fc0307] hover:text-white" onClick={() => { setPreImage(); setUploadImage() }}></i>
                 </div>
-
+            ) : (
+                <div className="w-full relative">
+                    <img src={haveImage} className="w-full rounded-xl shadow-2xl mt-5" />
+                    <i className="fa-solid fa-xmark absolute top-2 right-2 bg-white rounded-full px-[2px] cursor-pointer hover:bg-[#fc0307] hover:text-white" onClick={() => { setPreImage(); setUploadImage() }}></i>
+                </div>
+            )
             }
         </div>
     );

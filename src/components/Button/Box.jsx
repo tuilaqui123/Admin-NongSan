@@ -26,7 +26,7 @@ const Box = ({ path, image, name }) => {
             <div className="w-full border border-gray-400 rounded-lg bg-white overflow-hidden">
                 <img
                     src={image}
-                    className="w-full h-[120px] group-hover:scale-110 duration-200 group-hover:brightness-110"
+                    className="w-full group-hover:scale-110 duration-200 group-hover:brightness-110"
                 />
             </div>
             <p className="py-3 font-medium truncate text-center w-full group-hover:text-white duration-200">{name}</p>

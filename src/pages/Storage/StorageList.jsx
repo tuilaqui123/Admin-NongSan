@@ -69,11 +69,9 @@ const StorageList = () => {
                     return (
                         <Item
                             key={index}
-                            path={"chinh-sua/id0912312"}
-                            onclick={() => handleChildSelectBreadcrumb("Rau xà lách#0234")}
-                            image={value.image}
-                            name={value.name}
-                            price={value.price}
+                            path={`chinh-sua/${value._id}`}
+                            onclick={() => handleChildSelectBreadcrumb(`${value.name}`)}
+                            data={value}
                         />
                     )
                 })}

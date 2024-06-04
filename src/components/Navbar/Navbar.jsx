@@ -11,7 +11,7 @@ const Navbar = ({ navSlide }) => {
     const { setBreadcrumb } = useContext(AppContext)
     const [select, setSelect] = useState(1)
     useEffect(() => {
-        navigate("/thong-ke")
+        navigate("/don-hang")
     }, [])
 
     const handleBreadcrumbChange = (newBreadcrumb) => {
@@ -66,7 +66,7 @@ const Navbar = ({ navSlide }) => {
                         "w-[50px] flex flex-col gap-3 mt-5": !navSlide
                     })}
                 >
-                    <NavButton
+                    {/* <NavButton
                         icon={"fa-solid fa-chart-simple"}
                         name={"Thống kê"}
                         path={"/thong-ke"}
@@ -76,7 +76,7 @@ const Navbar = ({ navSlide }) => {
                         select={select}
                         navSlide={navSlide}
                         onBreadcrumbChange={handleBreadcrumbChange}
-                    />
+                    /> */}
                     <NavButton
                         icon={"fa-solid fa-box"}
                         name={"Đơn hàng"}
