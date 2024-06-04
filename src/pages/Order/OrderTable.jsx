@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const OrderTable = () => {
     const { breadcrumb, setBreadcrumb } = useContext(AppContext)
@@ -13,6 +14,28 @@ const OrderTable = () => {
             childSelect: child
         }
         setBreadcrumb(temp)
+    }
+    const [orderList, setOrderList] = useState([]) 
+    useEffect(() => {
+        axios.get('http://localhost:8082/orders')
+        .then((res) => {
+            setOrderList(res.data)
+        })
+        .catch(err => console.log(err))
+    }, [])
+    const formatNumber = (number) => {
+        return new Intl.NumberFormat('de-DE').format(number);
+    };
+    const formatDate = (datetime) => {
+        const date = new Date(datetime)
+        const day = date.getUTCDate()
+        const month = date.getUTCMonth() + 1
+        const year = date.getUTCFullYear()
+        const formattedDay = day < 10 ? '0' + day : day
+        const formattedMonth = month < 10 ? '0' + month : month
+        const formattedDate = `${formattedDay}/${formattedMonth}/${year}`
+
+        return formattedDate
     }
     return (
         <div>
@@ -47,38 +70,49 @@ const OrderTable = () => {
                         </tr>
                     </thead>
                     <tbody className="w-full">
-                        <tr
-                            onClick={() => {
-                                handleChildSelectBreadcrumb("OrderID")
-                                navigate("chi-tiet/OrderID")
-                            }}
-                            className="w-full h-auto text-center hover:bg-[#d8d8d8] duration-150 cursor-pointer"
-                        >
-                            <td className="font-bold">#001</td>
-                            <td>
-                                <div className="flex flex-row items-start justify-center gap-3 py-2">
-                                    <div className="flex flex-col items-start font-medium">
-                                        <p>Rau xà lách</p>
-                                        <p>Tôm sú bình định</p>
-                                        <p>Cam tươi hà giang</p>
-                                    </div>
-                                    <div className="flex flex-col items-start font-medium">
-                                        <p>x1</p>
-                                        <p>x1</p>
-                                        <p>x1</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td className="flex justify-center items-center py-2">
-                                <div className="text-left">
-                                    <p className="font-bold">Họ tên: <span className="font-normal">Phạm Ngọc Quí</span></p>
-                                    <p className="font-bold">Số điện thoại: <span className="font-normal">0912725561</span></p>
-                                </div>
-                            </td>
-                            <td className="font-bold text-[#7dc642]">1.200.000đ</td>
-                            <td>16/04/2203</td>
-                            <td className="font-bold text-[#7dc642]">Đã giao</td>
-                        </tr>
+                        {orderList.map((ele, index) => {
+                            return (
+                                <tr
+                                    key={index}
+                                    onClick={() => {
+                                        handleChildSelectBreadcrumb("OrderID")
+                                        navigate("chi-tiet/OrderID", {
+                                            state: ele
+                                        })
+                                    }}
+                                    className="w-full h-auto text-center hover:bg-[#d8d8d8] duration-150 cursor-pointer"
+                                >
+                                    <td className="font-bold">#{ele._id}</td>
+                                    <td>
+                                        <div className="flex flex-row items-start justify-center gap-3 py-2">
+                                            <div className="flex flex-col items-start font-medium">
+                                                {ele.items.map((ele, index) => {
+                                                    return (
+                                                        <p key={index}>{ele.item.name}</p>  
+                                                    )
+                                                })}
+                                            </div>
+                                            <div className="flex flex-col items-start font-medium">
+                                                {ele.items.map((ele, index) => {
+                                                    return (
+                                                        <p key={index}>x{ele.amount}</p>
+                                                    )
+                                                })}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="flex justify-center items-center py-2">
+                                        <div className="text-left">
+                                            <p className="font-bold">Họ tên: <span className="font-normal">{ele.user.name}</span></p>
+                                            <p className="font-bold">Số điện thoại: <span className="font-normal">{ele.user.phone}</span></p>
+                                        </div>
+                                    </td>
+                                    <td className="font-bold text-[#7dc642]">{formatNumber(ele.total)}đ</td>
+                                    <td>{formatDate(ele.createdAt)}</td>
+                                    <td className="font-bold text-[#7dc642]">{ele.deliveryStatus === 'Dang van chuyen' ? "Chờ xác nhận" : "Đang giao"}</td>
+                                </tr>
+                            )
+                        })}
                     </tbody>
                 </table>
             </div>

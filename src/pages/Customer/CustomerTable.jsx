@@ -1,11 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
 import avt from '../../assets/avt.jpg'
+import axios from "axios";
 
 const CustomerTable = () => {
+    const [customers, setCustomers] = useState([])
+    useEffect(() => {
+        axios.get('http://localhost:8082/customers')
+        .then((res) => {
+            setCustomers(res.data)
+        })
+    }, [])
     const { breadcrumb, setBreadcrumb } = useContext(AppContext)
+    const formatDate = (datetime) => {
+        const date = new Date(datetime)
+        const day = date.getUTCDate()
+        const month = date.getUTCMonth() + 1
+        const year = date.getUTCFullYear()
+        const formattedDay = day < 10 ? '0' + day : day
+        const formattedMonth = month < 10 ? '0' + month : month
+        const formattedDate = `${formattedDay}/${formattedMonth}/${year}`
 
+        return formattedDate
+    }
+    const formatNumber = (number) => {
+        return new Intl.NumberFormat('de-DE').format(number);
+    };
     function handleChildSelectBreadcrumb(child) {
         const temp = {
             mainSelect: breadcrumb.mainSelect,
@@ -45,29 +66,35 @@ const CustomerTable = () => {
                     </tr>
                 </thead>
                 <tbody className="w-full">
-                    <tr className="w-full h-auto text-center hover:bg-[#d8d8d8] duration-150 ">
-                        <td className="flex flex-row p-2 gap-2">
-                            <img
-                                src={avt}
-                                className="w-[50px] rounded-full"
-                            />
-                            <div className="text-left">
-                                <p className="font-bold">Phạm Ngọc Quí</p>
-                                <p>quidhtv0149@gmail.com</p>
-                            </div>
-                        </td>
-                        <td>0912725561</td>
-                        <td>12/02/2023</td>
-                        <td className="font-bold text-[#7dc642]">50.000đ</td>
-                        <td className="px-5">
-                            <Link
-                                to={`chi-tiet/customerID`}
-                                onClick={() => handleChildSelectBreadcrumb("Phạm Ngọc Quí")}
-                            >
-                                <i class="fa-solid fa-gear text-2xl hover:text-blue-700 cursor-pointer duration-200"></i>
-                            </Link>
-                        </td>
-                    </tr>
+                    {customers.map((ele, index) => {
+                        console.log(ele)
+                        return (
+                            <tr key={index} className="w-full h-auto text-center hover:bg-[#d8d8d8] duration-150 ">
+                                <td className="flex flex-row p-2 gap-2">
+                                    <img
+                                        src={avt}
+                                        className="w-[50px] rounded-full"
+                                    />
+                                    <div className="text-left">
+                                        <p className="font-bold">{ele.customer.name}</p>
+                                        <p>{ele.customer.email}</p>
+                                    </div>
+                                </td>
+                                <td>{ele.customer.phone}</td>
+                                <td>{formatDate(ele.customer.createdAt)}3</td>
+                                <td className="font-bold text-[#7dc642]">{formatNumber(ele.totalIntoMoney)}đ</td>
+                                <td className="px-5">
+                                    <Link
+                                        to={`chi-tiet/customerID`}
+                                        onClick={() => handleChildSelectBreadcrumb("Phạm Ngọc Quí")}
+                                    >
+                                        <i class="fa-solid fa-gear text-2xl hover:text-blue-700 cursor-pointer duration-200"></i>
+                                    </Link>
+                                </td>
+                            </tr>
+                        )
+                    })}
+                    
                 </tbody>
             </table>
         </div>

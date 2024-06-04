@@ -81,7 +81,6 @@ const Navbar = ({ navSlide }) => {
                         icon={"fa-solid fa-box"}
                         name={"Đơn hàng"}
                         path={"/don-hang"}
-                        badge={12}
                         onclick={() => setSelect(2)}
                         position={2}
                         select={select}
@@ -92,7 +91,6 @@ const Navbar = ({ navSlide }) => {
                         icon={"fa-solid fa-users"}
                         name={"Khách hàng"}
                         path={"/khach-hang"}
-                        badge={12}
                         onclick={() => setSelect(3)}
                         position={3}
                         select={select}
@@ -129,7 +127,7 @@ const Navbar = ({ navSlide }) => {
                         navSlide={navSlide}
                         onBreadcrumbChange={handleBreadcrumbChange}
                     />
-                    <NavButton
+                    {/* <NavButton
                         icon={"fa-solid fa-bars-progress"}
                         name={"Quản lý web"}
                         path={"/quan-ly-web"}
@@ -138,7 +136,7 @@ const Navbar = ({ navSlide }) => {
                         select={select}
                         navSlide={navSlide}
                         onBreadcrumbChange={handleBreadcrumbChange}
-                    />
+                    /> */}
                 </div>
             </div>
         </div>
