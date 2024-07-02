@@ -1,4 +1,3 @@
-import React from "react";
 import avt from '../../assets/avt.jpg'
 import OrderDetailTable from "./OrderDetailTable";
 import CommonButton from "../../components/Button/CommonButton";
@@ -8,7 +7,6 @@ import axios from "axios";
 const OrderDetail = () => {
     const location = useLocation()
     const order = location.state || ""
-    console.log(order)
     const formatNumber = (number) => {
         return new Intl.NumberFormat('de-DE').format(number);
     };
@@ -59,7 +57,7 @@ const OrderDetail = () => {
                 <div className="w-[30%] flex flex-col items-center border border-[#3e3e3e] py-3 rounded-lg">
                     <p className="font-bold text-3xl mb-5 text-center">Tóm tắt</p>
                     <div className="w-full px-3 flex flex-col items-center gap-3">
-                        <p className="w-full flex flex-row justify-between items-center font-bold text-lg">Tạm tính: <span>{formatNumber(order.total)}đ</span></p>
+                        <p className="w-full flex flex-row justify-between items-center font-bold text-lg">Tạm tính: <span>{formatNumber(order.intoMoney)}đ</span></p>
                         <p className="w-full flex flex-row justify-between items-center font-bold text-lg">Mã giảm giá: <span className="text-red-600">-{order.voucher ? order.total*(order.voucher.percent/100) : 0}đ</span></p>
                         <div className="border-b-2 border-[#3e3e3e] w-3/4 my-2 justify-self-center"></div>
                         <p className="w-full flex flex-row justify-between items-center font-bold text-xl">Tổng tiền: <span className="text-[#7dc642]">{formatNumber(order.intoMoney)}đ</span></p>

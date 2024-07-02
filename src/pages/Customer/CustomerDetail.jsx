@@ -1,8 +1,25 @@
-import React from "react";
 import avt from '../../assets/avt.jpg'
 import CustomerOrderHistory from "./CustomerOrderHistory";
+import { useLocation } from 'react-router-dom';
 
 const CustomerDetail = () => {
+    const location = useLocation()
+    const state = location.state || ""
+
+    const formatDate = (datetime) => {
+        const date = new Date(datetime)
+        const day = date.getUTCDate()
+        const month = date.getUTCMonth() + 1
+        const year = date.getUTCFullYear()
+        const formattedDay = day < 10 ? '0' + day : day
+        const formattedMonth = month < 10 ? '0' + month : month
+        const formattedDate = `${formattedDay}/${formattedMonth}/${year}`
+
+        return formattedDate
+    }
+    const formatNumber = (number) => {
+        return new Intl.NumberFormat('de-DE').format(number);
+    }
     return (
         <div>
             <div className="w-full flex flex-row items-start gap-5">
@@ -27,18 +44,18 @@ const CustomerDetail = () => {
                             <p className="text-xl">Tổng tiền đã mua:</p>
                         </div>
                         <div className="flex flex-col gap-3">
-                            <p>Phạm Ngọc Quí</p>
-                            <p>0912725561</p>
-                            <p>quidhtv0149@gmail.com</p>
-                            <p>17/08/2003</p>
-                            <p>05/05/2004</p>
-                            <p className="text-[#7dc642] font-bold text-xl">2.000.000đ</p>
+                            <p>{state.customer.name}</p>
+                            <p>{state.customer.phone}</p>
+                            <p>{state.customer.email}</p>
+                            <p>{formatDate(state.customer.birthday)}</p>
+                            <p>{formatDate(state.customer.createdAt)}</p>
+                            <p className="text-[#7dc642] font-bold text-xl">{formatNumber(state.totalIntoMoney)} đ</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="w-full h-auto">
-                <CustomerOrderHistory />
+                <CustomerOrderHistory userId={state.customer._id}/>
             </div>
         </div>
     )

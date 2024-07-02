@@ -1,4 +1,3 @@
-import React from "react";
 
 const StatusBox = ({ bg, title, value, statistics, statisticsText }) => {
     return (

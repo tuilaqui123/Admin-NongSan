@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import logo from '../../assets/logo.png'
 import logoLeaf from '../../assets/logo-leaf.png'
 import NavButton from "../Button/NavButton";

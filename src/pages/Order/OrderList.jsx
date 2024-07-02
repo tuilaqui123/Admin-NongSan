@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
 import StatusBox from "../../components/Display/StatusBox";
 import CommonSearch from "../../components/Search/CommonSearch";
 import OrderTable from "./OrderTable";
-import axios from "axios";
 
 const OrderList = () => {
     

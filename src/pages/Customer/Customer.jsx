@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import '../../hiddenScroll.css'
-import axios from "axios";
 
 const Customer = () => {
     

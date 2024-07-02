@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CommonButton from "../../components/Button/CommonButton";
 import CommonInput from "../../components/Search/CommonInput";
 

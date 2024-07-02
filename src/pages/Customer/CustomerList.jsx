@@ -1,8 +1,6 @@
-import React, {useEffect, useState} from "react";
 import CommonSearch from "../../components/Search/CommonSearch";
 import CustomerTable from "./CustomerTable";
 import StatusBox from "../../components/Display/StatusBox";
-import axios from "axios";
 
 const CustomerList = () => {
     

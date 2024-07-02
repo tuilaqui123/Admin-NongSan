@@ -1,9 +1,9 @@
-import React from "react";
-
+/* eslint-disable react/prop-types */
+// eslint-disable-next-line react/prop-types
 const OrderDetailTable = ({product}) => {
     const formatNumber = (number) => {
         return new Intl.NumberFormat('de-DE').format(number);
-    };
+    }
     return (
         <div>
             <div className="w-full rounded-t-lg overflow-hidden">
